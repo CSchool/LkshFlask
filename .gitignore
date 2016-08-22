@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+pip-log.txt
+pip-delete-this-directory.txt
+*.mo
+*.pot
+*.o
+*.ppu
+logs
+.coverage
+htmlcov
+*.swp
+.idea
