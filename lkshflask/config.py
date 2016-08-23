@@ -12,3 +12,8 @@ WTF_CSRF_ENABLED = True
 WTF_CSRF_SECRET_KEY = "8B92SlBhL7Hl0E4ih2l0oMHgsK2onfGgNmE89BgfPT1CyCUV98cyMXakjY0hrDuM7kPlwXE4P1eE3XRezfOg"
 
 ASSETS_DEBUG = True
+
+LANGUAGES = {
+    "en": "English",
+    "ru": "Русский"
+}

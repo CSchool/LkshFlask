@@ -3,6 +3,10 @@
 import pkgutil
 import inspect
 
+from flask import session, request
+
+from lkshflask import app, babel
+
 __all__ = []
 
 for loader, name, is_pkg in pkgutil.walk_packages(__path__):
@@ -14,3 +18,8 @@ for loader, name, is_pkg in pkgutil.walk_packages(__path__):
 
         globals()[name] = value
         __all__.append(name)
+
+
+@babel.localeselector
+def get_locale():
+    return session.get('language') or request.accept_languages.best_match(app.config.get('LANGUAGES', dict()).keys())

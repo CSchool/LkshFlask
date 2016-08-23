@@ -15,38 +15,39 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
-                <div class="brand">LKSH
+                <div class="brand">{{ _("LKSH") }}
                     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
                 </div>
 
                 <ul id="menu-content" class="collapse out">
                     <li class="collapsed active"><a href="#" ><i class="fa fa-dashboard fa-lg"></i> Dashboard</a></li>
-                    <li data-toggle="collapse" data-target="#products" class="collapsed out">
-                        <a href="#"><i class="fa fa-gift fa-lg"></i> UI Elements <span class="arrow"></span></a>
+                    <li data-toggle="collapse" data-target="#languages" class="collapsed out">
+                        <a href="#"><i class="fa fa-flag fa-lg"></i>{{ _("Language") }}<span class="arrow"></span></a>
                     </li>
-                    <ul class="sub-menu collapse" id="products">
-                        <li><a href="#">CSS3 Animation</a></li>
-                        <li><a href="#">General</a></li>
-                        <li><a href="#">Buttons</a></li>
-                        <li><a href="#">Tabs & Accordions</a></li>
-                        <li><a href="#">Typography</a></li>
-                        <li><a href="#">FontAwesome</a></li>
-                        <li><a href="#">Slider</a></li>
-                        <li><a href="#">Panels</a></li>
-                        <li><a href="#">Widgets</a></li>
-                        <li><a href="#">Bootstrap Model</a></li>
+                    <ul class="sub-menu collapse" id="languages">
+                        {% for lang in config.LANGUAGES %}
+                            <li><a href="{{ url_for('setlocale', lang=lang) }}">{{ config.LANGUAGES[lang] }}</a></li>
+                        {% endfor %}
                     </ul>
                 </ul>
-
-
-
             </div>
 
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                {% block main %}
+                {% block before_content %}
                     <div class="text-center">
-                        <h1 class="page-header">Hello world!</h1>
+                        <h1 class="page-header">{% block page_header %}{{ _("Hello world!") }}{% endblock %}</h1>
                     </div>
+                {% endblock %}
+                {% with messages = get_flashed_messages(with_categories=True) %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-dismissible alert-{{ category if category != 'message' else 'info' }}" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endwith %}
+                {% block content %}
                 {% endblock %}
             </div>
         </div>
