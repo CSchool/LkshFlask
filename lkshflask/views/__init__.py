@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""Console commands for lkshflask"""
-
 import pkgutil
 import inspect
 
