@@ -1,0 +1,25 @@
+{#
+    Basic template
+#}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LkshFlask</title>
+    {% assets "styles" %}
+        <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
+    {% endassets %}
+</head>
+<body>
+    <!-- Maybe this time it could be different -->
+    {% block body %}
+        <h1>{{ _("Hello, world!") }}</h1>
+    {% endblock %}
+
+
+    {% assets "javascript" %}
+        <script src="{{ ASSET_URL }}" type="text/javascript"></script>
+    {% endassets %}
+</body>
+</html>

@@ -3,8 +3,11 @@
 APPNAME = "lkshflask"
 
 from flask import Flask
-import lkshflask.config
 from flask_sqlalchemy import SQLAlchemy
+from flask_babel import Babel
+from flask_assets import Environment
+
+import lkshflask.config
 
 class LkshFlaskApplication(Flask):
     "lkshflask WSGI application"
@@ -15,6 +18,9 @@ class LkshFlaskApplication(Flask):
 app = LkshFlaskApplication("lkshflask")
 app.config.from_object(lkshflask.config)
 db = SQLAlchemy(app)
+babel = Babel(app)
+assets = Environment(app)
 
 import lkshflask.views
 import lkshflask.models
+import lkshflask.assets

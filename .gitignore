@@ -11,3 +11,6 @@ logs
 htmlcov
 *.swp
 .idea
+.webassets-cache
+lkshflask/static/gen
+*.log
