@@ -1,0 +1,19 @@
+{
+  "name": "lkshflask",
+  "homepage": "https://github.com/CSchool/LkshFlask",
+  "authors": [
+    "SaboteurInCave <saboteurincave@gmail.com>",
+    "TsarN <nikts53@gmail.com>"
+  ],
+  "description": "LKSH-site with Python with Flask microframework",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
