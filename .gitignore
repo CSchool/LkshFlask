@@ -14,3 +14,4 @@ htmlcov
 .webassets-cache
 lkshflask/static/gen
 *.log
+lkshflask/static/bower_components

@@ -6,16 +6,20 @@ from lkshflask import assets
 
 css = Bundle(
     'styles/main.css',
-    'libs/Bootstrap/css/bootstrap.css'
+    'bower_components/bootstrap/dist/css/bootstrap.css',
+    'bower_components/font-awesome/css/font-awesome.css',
+    filters='cssrewrite'
 )
 
 less = Bundle(
     'styles/main.less',
-    filters='less'
+    filters='less',
+    output='gen/packed_less.css'
 )
 
 js = Bundle(
-    'libs/jQuery/jquery-3.1.0.js',
+    'bower_components/jquery/dist/jquery.js',
+    'bower_components/bootstrap/dist/js/bootstrap.js',
     output='gen/packed.js',
     filters='rjsmin'
 )
