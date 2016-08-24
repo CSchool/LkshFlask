@@ -6,6 +6,7 @@ from flask import Flask, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_babel import Babel
 from flask_assets import Environment
+from flask_login import LoginManager
 
 import lkshflask.config
 
@@ -20,6 +21,7 @@ app.config.from_object(lkshflask.config)
 db = SQLAlchemy(app)
 babel = Babel(app)
 assets = Environment(app)
+login_manager = LoginManager(app)
 
 def redirect_url(default='index'):
     """Return previous url"""
@@ -29,5 +31,5 @@ def redirect_url(default='index'):
 
 
 import lkshflask.views
-import lkshflask.models
+import lkshflask.models.user
 import lkshflask.assets

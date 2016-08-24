@@ -8,6 +8,7 @@ css = Bundle(
     'styles/main.css',
     'bower_components/bootstrap/dist/css/bootstrap.css',
     'bower_components/font-awesome/css/font-awesome.css',
+    'bower_components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css',
     filters='cssrewrite'
 )
 

@@ -1,3 +1,4 @@
+{% from 'helpers.html' import render_bootstrap_field with context %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block pageTitle %} Flask LKSH {% endblock %}</title>
+    <title>{% block title %} Flask LKSH {% endblock %}</title>
     {% assets "styles" %}
         <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}"/>
     {% endassets %}

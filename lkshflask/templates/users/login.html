@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block page_header %}{{ _("Log in") }}{% endblock %}
+{% block title %}{{ super() }} - {{ _("Log in") }}{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            {% if form.generic_errors %}
+                <div class="alert alert-danger">
+                    <ul>
+                    {% for error in form.generic_errors %}
+                        <li>{{ _(error) }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    <label for="username">{{ _("Username") }}</label>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="{{ _("Username") }}" />
+                    {% for error in form.errors.get("username", ()) %}
+                        <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                <div class="form-group">
+                    <label for="password">{{ _("Password") }}</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="{{ _("Password") }}" />
+                    {% for error in form.errors.get("password", ()) %}
+                        <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="remember-me" name="remember-me" class="styled">
+                    <label for="remember-me">
+                        {{ _("Remember me") }}
+                    </label>
+                </div>
+                <button class="btn btn-primary btn-block">
+                    {{ _("Log in") }}
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
